@@ -30,18 +30,18 @@ router.post('/', (req, res) => {
   let body = req.body;
 
   if (body.object === 'page') {
-    body.entry.forEach(function(entry) {
-      let webhook_event = entry.messaging[0];
+    // body.entry.forEach(function(entry) {
+      let webhook_event = body.entry[0].messaging;
       console.log('webhook_event console message ',webhook_event); // ************ Needa to be replaced ***************
-      // for (let i=0; i<webhook_event.length; i++){
-        let event = webhook_event;
+      for (let i=0; i<webhook_event.length; i++){
+        let event = webhook_event[i];
         let sender = event.sender.id;
         if(event.message && event.message.text){
           let text = event.message.text
           sendText(sender, 'Chatbot echo: ' + text.substring(0, 100))
         }
-      // }
-    });
+      }
+    // });
     res.status(200).send('EVENT_RECEIVED');
   } else {
     res.sendStatus(404); // 404 - Not Found
