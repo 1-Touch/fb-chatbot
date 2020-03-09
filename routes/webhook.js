@@ -32,15 +32,15 @@ router.post('/', (req, res) => {
   if (body.object === 'page') {
     body.entry.forEach(function(entry) {
       let webhook_event = entry.messaging[0];
-      console.log(webhook_event); // ************ Needa to be replaced ***************
-      for (let i=0; i<webhook_event.length; i++){
-        let event = webhook_event[i];
+      console.log('webhook_event console message 'webhook_event); // ************ Needa to be replaced ***************
+      // for (let i=0; i<webhook_event.length; i++){
+        let event = webhook_event;
         let sender = event.sender.id;
         if(event.message && event.message.text){
           let text = event.message.text
           sendText(sender, 'Chatbot echo: ' + text.substring(0, 100))
         }
-      }
+      // }
     });
     res.status(200).send('EVENT_RECEIVED');
   } else {
