@@ -2,13 +2,10 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 
-const token = 'EAAHuZAWH9xYQBAASS2gqEXKSMH9KMJfYZB3U374ol0FYlwFLC8XsfAnEgVDi9ZCQ2kCnEMt46WrYpyhvUWRmVYMa3cTFtnmD2TZATcqxUezNTZA3ZBPxIN353mB9KWO5CZCr2HgGub5wAJmJiPeZAz3L66W8UQVZCG0C2lcn2nnZCiBgZDZD'
-
 // Webhook verification
 router.get('/', (req, res) => {
 
-  // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = 'fitness_union';
+  let VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
   let mode = req.query['hub.mode'];
   let token = req.query['hub.verify_token'];
@@ -53,7 +50,7 @@ function sendText(sender, text){
   let messageData = {text: text}
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token: token},
+    qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
     method: 'POST',
     json: {
       recipient: {id: sender},
