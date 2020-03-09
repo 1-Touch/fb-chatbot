@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('Hey I am a chatbot')
+})
 app.use('/webhook/', require('./routes/webhook'));
 
 // Sets server port and logs message on success

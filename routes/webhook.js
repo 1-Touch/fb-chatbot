@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
+const token = 'EAAHuZAWH9xYQBAASS2gqEXKSMH9KMJfYZB3U374ol0FYlwFLC8XsfAnEgVDi9ZCQ2kCnEMt46WrYpyhvUWRmVYMa3cTFtnmD2TZATcqxUezNTZA3ZBPxIN353mB9KWO5CZCr2HgGub5wAJmJiPeZAz3L66W8UQVZCG0C2lcn2nnZCiBgZDZD'
+
 // Webhook verification
 router.get('/', (req, res) => {
 
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+  let VERIFY_TOKEN = 'fitness_union';
 
   let mode = req.query['hub.mode'];
   let token = req.query['hub.verify_token'];
