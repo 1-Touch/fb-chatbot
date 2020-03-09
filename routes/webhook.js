@@ -33,8 +33,8 @@ router.post('/', (req, res) => {
     body.entry.forEach(function(entry) {
       let webhook_event = entry.messaging[0];
       console.log(webhook_event); // ************ Needa to be replaced ***************
-      for (let i=0; i<messaging_events.length; i++){
-        let event = messaging_events[i];
+      for (let i=0; i<webhook_event.length; i++){
+        let event = webhook_event[i];
         let sender = event.sender.id;
         if(event.message && event.message.text){
           let text = event.message.text
