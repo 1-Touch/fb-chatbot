@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
         let sender = event.sender.id;
         if(event.message && event.message.text){
           let text = event.message.text
-          sendText(sender, 'Text echo' + text.substring(0, 100))
+          sendText(sender, 'Chatbot echo: ' + text.substring(0, 100))
         }
       }
     });
@@ -52,7 +52,7 @@ function sendText(sender, text){
   let messageData = {text: text}
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
+    qs: {access_token: token},
     method: 'POST',
     json: {
       recipient: {id: sender},
