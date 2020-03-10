@@ -1,36 +1,5 @@
 const sendText = require('../processes/sendText');
-
-const greetings = [
-  'Hello, sunshine!',
-  'Howdy, partner!',
-  'Hey, howdy, hi!',
-  'What’s kickin’, little chicken?',
-  'Peek-a-boo!',
-  'Howdy-doody!',
-  'Hey there, freshman!',
-  'Hi, mister!',
-  'I come in peace!',
-  'Put that cookie down!',
-  'Ahoy, matey!',
-  'Hiya!',
-  "Ello, gov'nor!",
-  'What’s crackin’?',
-  'Sup, homeslice?',
-  'Howdy, howdy ,howdy!',
-  'Yo!',
-  'Whaddup.',
-  'Greetings and salutations!',
-  'Ello, mate',
-  'Heeey, baaaaaby',
-  'Hi, honeybunch!',
-  'Oh, yoooouhoooo!',
-  "How you doin'?",
-  'I like your face',
-  "What's cookin', good lookin'?",
-  'Howdy, miss',
-  'Why, hello there!',
-  'Hey, boo'
-];
+const greetings = require('../messages/replies/greetings');
 
 module.exports = function greetingIntent(sender) {
   const greetingText = Math.floor(Math.random() * greetings.length);
