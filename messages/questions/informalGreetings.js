@@ -1,9 +1,9 @@
 const informalGreetings = [
   'how are you',
-  'What\'s up',
+  'what\'s up',
   'sup',
-  'How\'s it going',
-  'How have you been'
+  'how\'s it going',
+  'how have you been'
 ];
 
 module.exports = informalGreetings;
