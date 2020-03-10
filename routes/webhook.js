@@ -1,6 +1,7 @@
 const express = require('express');
+const processMessage = require('../processes/processMessage');
+
 const router = express.Router();
-const request = require('request');
 
 // Webhook verification
 router.get('/', (req, res) => {
@@ -33,10 +34,11 @@ router.post('/', (req, res) => {
       console.log('webhook_event console message ',webhook_event); // ************ Needa to be replaced ***************
       for (let i=0; i<webhook_event.length; i++){
         let event = webhook_event[i];
-        let sender = event.sender.id;
+        let sender = event.sender;
         if(event.message && event.message.text){
           let text = event.message.text
-          sendText(sender, 'Chatbot echo: ' + text.substring(0, 100))
+          // sendText(sender, 'Chatbot echo: ' + text.substring(0, 100))
+          processMessage(sender, text);
         }
       }
     // });
@@ -45,24 +47,5 @@ router.post('/', (req, res) => {
     res.sendStatus(404); // 404 - Not Found
   }
 });
-
-function sendText(sender, text){
-  let messageData = {text: text}
-  request({
-    url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
-    method: 'POST',
-    json: {
-      recipient: {id: sender},
-      message: messageData
-    }, function(error, response, body){
-      if(error){
-        console.log('sending error')
-      } else if(response.body.error){
-        console.log('response body error')
-      }
-    }
-  })
-}
 
 module.exports = router;
