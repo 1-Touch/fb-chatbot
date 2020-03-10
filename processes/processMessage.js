@@ -4,10 +4,10 @@ module.exports = function processMessage(sender, text){
   let message = text.toLowerCase();
   console.log('sender details are ---', sender)
   switch(message){
-    case message.includes('hey') || message.includes('hello') || message.includes('hi'):
+    case 'hey' || 'hello' || 'hi':
       sendText(sender, `Hey there, Howz you doing`)
       break;
-    case message.includes('how are you'):
+    case 'how are you':
       sendText(sender, 'I am good, what about you')
       break;
     default:
