@@ -1,7 +1,7 @@
 const sendText = require('./sendText');
 
 module.exports = function processMessage(sender, text){
-  let message = text.toLowercase();
+  let message = text.toLowerCase();
   if(message.includes('hey') || message.includes('hello') || message.includes('hi')){
     sendText(sender.id, `Hey ${sender.name}, Howz you doing`)
   } else if(message.include('how are you')){
