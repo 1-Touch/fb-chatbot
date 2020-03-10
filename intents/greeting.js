@@ -17,5 +17,5 @@ const greetings = [
 
 module.exports = function greeting(sender) {
   const greetingText = Math.floor(Math.random() * greetings.length);
-  sendText(sender, greetingText);
+  sendText(sender, greetings[greetingText]);
 };
