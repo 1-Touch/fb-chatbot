@@ -12,10 +12,27 @@ const greetings = [
   'I come in peace!',
   'Put that cookie down!',
   'Ahoy, matey!',
-  'Hiya!'
+  'Hiya!',
+  "Ello, gov'nor!",
+  'What’s crackin’?',
+  'Sup, homeslice?',
+  'Howdy, howdy ,howdy!',
+  'Yo!',
+  'Whaddup.',
+  'Greetings and salutations!',
+  'Ello, mate',
+  'Heeey, baaaaaby',
+  'Hi, honeybunch!',
+  'Oh, yoooouhoooo!',
+  "How you doin'?",
+  'I like your face',
+  "What's cookin', good lookin'?",
+  'Howdy, miss',
+  'Why, hello there!',
+  'Hey, boo'
 ];
 
-module.exports = function greeting(sender) {
+module.exports = function greetingIntent(sender) {
   const greetingText = Math.floor(Math.random() * greetings.length);
   sendText(sender, greetings[greetingText]);
 };

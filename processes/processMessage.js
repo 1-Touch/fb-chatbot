@@ -1,4 +1,5 @@
-const greeting = require('../intents/greeting');
+const greetingIntent = require('../intents/greetingIntent');
+const greetings = require('../messages/questions/greetings');
 const sendText = require('./sendText');
 
 module.exports = function processMessage(sender, text) {
@@ -6,11 +7,11 @@ module.exports = function processMessage(sender, text) {
   console.log('sender details are ---', sender);
   if (
     message.includes('hey') ||
-    message.includes('hello') ||
-    message.includes('hi') ||
-    message.includes('hlo')
+    message.includes(greetings.map(greeting => greeting))
+    // message.includes('hi') ||
+    // message.includes('hlo')
   ) {
-    greeting(sender);
+    greetingIntent(sender);
   } else if (message.includes('how are you')) {
     sendText(sender, 'I am good, what about you');
   } else {
