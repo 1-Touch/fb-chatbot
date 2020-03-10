@@ -7,6 +7,6 @@ module.exports = function processMessage(sender, text){
   } else if(message.include('how are you')){
     sendText(sender.id, 'I am good, what about you')
   } else {
-    sendText(sender.id, 'Chatbot echo: ' + text.substring(0, 100))
+    sendText(sender.id, 'Chatbot echo : ' + text.substring(0, 100))
   }
 }
