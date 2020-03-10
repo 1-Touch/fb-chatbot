@@ -5,9 +5,9 @@ const sendText = require('./sendText');
 module.exports = function processMessage(sender, text) {
   let message = text.toLowerCase();
   console.log('sender details are ---', sender);
-  if (
-    message.includes('hey') ||
-    message.includes(greetings.map(greeting => greeting))
+  if ( greetings.find(greeting => message.includes(greeting))
+    // message.includes('hey') ||
+    // message.includes('hello') ||
     // message.includes('hi') ||
     // message.includes('hlo')
   ) {
