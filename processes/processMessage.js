@@ -2,8 +2,8 @@ const greetingIntent = require('../intents/greetingIntent');
 const greetings = require('../messages/questions/greetings');
 const informalGreetingIntent = require('../intents/informalGreetingIntent');
 const informalGreetings = require('../messages/questions/informalGreetings');
+const excerciseReccomendIntent = require('../intents/excerciseReccomendIntent');
 const helpIntent = require('../intents/helpIntent');
-const sendText = require('./sendText');
 
 module.exports = function processMessage(sender, text) {
   let message = text.toLowerCase();
@@ -11,8 +11,9 @@ module.exports = function processMessage(sender, text) {
     greetingIntent(sender);
   } else if (informalGreetings.find(informalGreeting => message.includes(informalGreeting))) {
     informalGreetingIntent(sender);
+  } else if(text === '1'){
+    excerciseReccomendIntent(sender);
   } else {
     helpIntent(sender);
-    // sendText(sender, 'Chatbot echo : ' + text.substring(0, 100));
   }
 };
