@@ -8,11 +8,6 @@ module.exports = function excerciseRecommendIntent(sender){
         const randomExcercise = Math.floor(Math.random() * excercise.data.results.length);
         sendText(sender, `Name : ${excercise.data.results[randomExcercise].name}`);
         sendText(sender, `Excercise : ${excercise.data.results[randomExcercise].description}`);
-    //     .then(res => {
-    //     const randomExcercise = Math.floor(Math.random() * res.results.length);
-    //     sendText(sender, `Name : ${res.results[randomExcercise].name}`);
-    //     sendText(sender, `Excercise : ${res.results[randomExcercise].description}`);
-    // })
     })
     .catch(err => {
         console.log(err)
