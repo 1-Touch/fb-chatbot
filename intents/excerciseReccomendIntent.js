@@ -1,3 +1,5 @@
+const request = require('request');
+
 module.exports = function excerciseRecommendIntent(sender){
     let excercises = request({
         url: 'https://wger.de/api/v2/exercise',
