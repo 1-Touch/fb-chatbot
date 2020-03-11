@@ -7,7 +7,6 @@ const sendText = require('./sendText');
 
 module.exports = function processMessage(sender, text) {
   let message = text.toLowerCase();
-  console.log('sender details are ---', sender);
   if (greetings.find(greeting => message.includes(greeting))) {
     greetingIntent(sender);
   } else if (informalGreetings.find(informalGreeting => message.includes(informalGreeting))) {
