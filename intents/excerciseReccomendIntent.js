@@ -1,7 +1,8 @@
 const sendText = require('../processes/sendText');
+const axios = require('axios');
 
 module.exports = function excerciseRecommendIntent(sender){
-    fetch('https://wger.de/api/v2/exercise')
+    axios.get('https://wger.de/api/v2/exercise')
     .then(data => data.json()
     .then(res => {
         const randomExcercise = Math.floor(Math.random() * res.results.length);
