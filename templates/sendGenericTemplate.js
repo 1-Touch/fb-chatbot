@@ -14,12 +14,12 @@ module.exports = function sendGenericTemplate(sender, image_url){
                     "default_action": {
                     "type": "web_url",
                     "url": image_url,
-                    "webview_height_ratio": "tall",
+                    "webview_height_ratio": "full",
                     },
                     "buttons":[
                     {
                         "type":"postback",
-                        "title":"Thanks for the reccomendation",
+                        "title":"Thanks!!!",
                         "payload":"thanks for recommendation"
                     },{
                         "type":"postback",
