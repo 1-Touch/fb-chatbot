@@ -3,6 +3,7 @@ const greetings = require('../messages/questions/greetings');
 const informalGreetingIntent = require('../intents/informalGreetingIntent');
 const informalGreetings = require('../messages/questions/informalGreetings');
 const excerciseReccomendIntent = require('../intents/excerciseReccomendIntent');
+const sendGenericTemplate = require('../templates/sendGenericTemplate');
 const helpIntent = require('../intents/helpIntent');
 
 module.exports = function processMessage(sender, text) {
@@ -13,6 +14,8 @@ module.exports = function processMessage(sender, text) {
     informalGreetingIntent(sender);
   } else if(text === '1'){
     excerciseReccomendIntent(sender);
+  } else if(text === '3'){
+    sendGenericTemplate(sender);
   } else {
     helpIntent(sender);
   }

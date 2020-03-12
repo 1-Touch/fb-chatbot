@@ -39,6 +39,11 @@ router.post('/', (req, res) => {
           // sendText(sender, 'Chatbot echo: ' + text.substring(0, 100))
           processMessage(sender, text);
         }
+        if(event.postback){
+          let text = JSON.stringify(event.postback);
+          processMessage(sender, text);
+          continue
+        }
       }
     // });
     res.status(200).send('EVENT_RECEIVED');
