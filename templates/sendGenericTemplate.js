@@ -1,6 +1,6 @@
 const sendRequest = require('../processes/sendRequest');
 
-module.exports = function sendGenericTemplate(sender){
+module.exports = function sendGenericTemplate(sender, image_url){
     const messageData = {
         "attachment":{
             "type":"template",
@@ -8,23 +8,23 @@ module.exports = function sendGenericTemplate(sender){
                 "template_type":"generic",
                 "elements":[
                     {
-                    "title":"Welcome!",
-                    "image_url":"https://wger.de/media/exercise-images/4/Crunches-1.png",
-                    "subtitle":"We have the right hat for everyone.",
+                    "title":"Try this!",
+                    "image_url":image_url,
+                    "subtitle":"Go ahead and try hitting this excercise today.",
                     "default_action": {
                     "type": "web_url",
-                    "url": "https://petersfancybrownhats.com/view?item=103",
+                    "url": image_url,
                     "webview_height_ratio": "tall",
                     },
                     "buttons":[
                     {
-                        "type":"web_url",
-                        "url":"https://petersfancybrownhats.com",
-                        "title":"View Website"
+                        "type":"postback",
+                        "title":"Thanks for the reccomendation",
+                        "payload":"thanks for recommendation"
                     },{
                         "type":"postback",
-                        "title":"Start Chatting",
-                        "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                        "title":"Suggest another",
+                        "payload":"suggest another"
                     }              
                     ]      
                 }
