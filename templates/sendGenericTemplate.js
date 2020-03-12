@@ -14,7 +14,7 @@ module.exports = function sendGenericTemplate(sender, image_url){
                     "default_action": {
                     "type": "web_url",
                     "url": image_url,
-                    "webview_height_ratio": "full",
+                    "webview_height_ratio": "compact",
                     },
                     "buttons":[
                     {
