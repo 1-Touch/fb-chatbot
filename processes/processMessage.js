@@ -2,6 +2,7 @@ const greetingIntent = require('../intents/greetingIntent');
 const greetings = require('../messages/questions/greetings');
 const informalGreetingIntent = require('../intents/informalGreetingIntent');
 const informalGreetings = require('../messages/questions/informalGreetings');
+const excerciseReccomendIntent = require('../intents/excerciseReccomendIntent');
 const excerciseImageIntent = require('../intents/excerciseImageIntent');
 const helpIntent = require('../intents/helpIntent');
 const sendText = require('./sendText');
