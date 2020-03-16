@@ -13,9 +13,9 @@ module.exports = function processMessage(sender, text) {
     greetingIntent(sender);
   } else if (informalGreetings.find(informalGreeting => message.includes(informalGreeting))) { // Greetings like How are you?
     informalGreetingIntent(sender);
-  } else if(text === 'reccomend excercise'){
+  } else if(text.includes('reccomend excercise')){
     excerciseReccomendIntent(sender);
-  } else if(text === 'excercise images'){
+  } else if(text.includes('excercise images')){
     excerciseImageIntent(sender)
   } else if(text.includes('thanks for recommendation')){
     sendText(sender, 'Feel free to come again!')
