@@ -6,9 +6,11 @@ const excerciseReccomendIntent = require('../intents/excerciseReccomendIntent');
 const excerciseImageIntent = require('../intents/excerciseImageIntent');
 const helpIntent = require('../intents/helpIntent');
 const sendText = require('./sendText');
+const quickReplies = require('../templates/quickReplies');
 
 module.exports = function processMessage(sender, text) {
   let message = text.toLowerCase();
+  quickReplies(sender);
   if (greetings.find(greeting => message.includes(greeting))) { // Greetings like hey, hello
     greetingIntent(sender);
   } else if (informalGreetings.find(informalGreeting => message.includes(informalGreeting))) { // Greetings like How are you?
