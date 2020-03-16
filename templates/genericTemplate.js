@@ -1,6 +1,6 @@
 const sendRequest = require('../processes/sendRequest');
 
-module.exports = function sendGenericTemplate(sender, image_url){
+module.exports = function genericTemplate(sender, image_url){
     const messageData = {
         "attachment":{
             "type":"template",

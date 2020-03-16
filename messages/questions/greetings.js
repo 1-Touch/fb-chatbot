@@ -5,7 +5,8 @@ const greetings = [
   'hola', 
   'hlo', 
   'bonjor', 
-  'heya'
+  'heya',
+  'get started'
 ];
 
 module.exports = greetings;
